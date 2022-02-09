@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Bree+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Bree+Serif&family=Hind&display=swap");
 
 $black: #000000;
 $secondaryBlack: #312f2f;
@@ -17,6 +17,8 @@ ul,
 h1,
 h2,
 h3,
+h4,
+h5
 p {
     margin: 0;
     padding: 0;
@@ -26,6 +28,12 @@ p {
 ul {
     width: 100%;
     list-style: none;
+}
+
+.canvas-wrapper {
+    @media (max-width: 992px) {
+        display: none;
+    }
 }
 
 section {
@@ -45,7 +53,7 @@ h1 {
     font-family: $fontPrimary;
     font-size: 2rem;
     @media (min-width: 768px) {
-        font-size: 5rem;
+        font-size: 5.25rem;
     }
 }
 
@@ -59,15 +67,31 @@ h2 {
 
 h3 {
     font-family: $fontPrimary;
+    @media (min-width: 768px) {
+        font-size: 5rem;
+    }
+}
+
+h4 {
+    font-family: $fontPrimary;
     font-size: 1.5rem;
     @media (min-width: 768px) {
         font-size: 2.5em;
     }
 }
 
+// Derma Drink
+h5 {
+    font-family: "Hind", sans-serif;
+    color: #2baae0;
+    font-weight: 900;
+    text-align: center;
+    font-size: 2rem;
+}
+
 p {
     font-family: $fontSecondary;
-    font-size: 0.75rem;
+    font-size: 1rem;
     @media (min-width: 768px) {
         font-size: 1.25rem;
     }
@@ -91,6 +115,7 @@ img {
 }
 
 .container-fluid {
+    position: relative;
     max-width: 1200px;
 }
 
@@ -110,18 +135,48 @@ img {
 }
 
 .btn {
+    position: relative;
+    border: none;
+    width: 100%;
+    max-width: 300px;
     display: block;
-    padding: 0.5rem 2rem;
+    padding: 0.75rem 2rem;
     color: $white;
     font-weight: 700;
     font-family: $fontPrimary;
     font-size: 1rem;
+    z-index: 1;
     @media (min-width: 768px) {
         font-size: 1.5rem;
     }
 
     &.colored {
         background-color: $secondaryColor;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0%;
+        background-color: #000;
+        opacity: 0.25;
+        transition: width 250ms ease-in-out;
+    }
+
+    &:hover {
+        color: $white;
+
+        &::after {
+            width: 100%;
+        }
+    }
+
+    span {
+        position: relative;
+        z-index: 1;
     }
 }
 
@@ -194,6 +249,10 @@ img {
 
 .profile-picture-wrapper {
     position: relative;
+    max-width: 400px;
+    @media (min-width: 768px) {
+        max-width: 500px;
+    }
 
     .image-wrapper {
         width: 95%;
@@ -404,9 +463,8 @@ img {
 
 #see-more-wrapper {
     position: absolute;
-    bottom: 75px
-    ;
-    right: 0;
+    bottom: 0;
+    right: -2rem;
     transform: rotate(90deg);
     display: flex;
     align-items: center;
@@ -454,6 +512,15 @@ img {
     }
 }
 
+#work-section {
+    .content {
+        padding: 1rem 0;
+        @media (min-width: 576px) {
+            padding: 1rem;
+        }
+    }
+}
+
 .project {
     $animationDuration: 650ms;
 
@@ -461,7 +528,8 @@ img {
     overflow: hidden;
     border-radius: 20px;
     box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.5);
-    background-color: rgba(0,0,0,0.15);
+    background-color: rgba(0, 0, 0, 0.15);
+    max-width: 325px;
 
     &::before,
     &::after {
@@ -496,28 +564,33 @@ img {
         height: 45%;
         position: relative;
 
-        svg {
+        svg,
+        h4 {
             // display: block;
             // margin: 0 auto;
             width: 75%;
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             max-width: 100%;
             max-height: 100%;
         }
     }
 
     .link-icon {
-        width: 50px;
-        height: 50px;
         border-radius: 50%;
         background-color: $secondaryColor;
         display: flex;
         // flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 37.5px;
+        height: 37.5px;
+        @media (min-width: 576px) {
+            width: 50px;
+            height: 50px;
+        }
 
         svg {
             width: 70%;
@@ -525,36 +598,42 @@ img {
         }
     }
 
-   .link-wrap {
+    .link-wrap {
+        .inner-link-wrap {
+            position: relative;
 
-    .inner-link-wrap {
-        position: relative;
-
-        svg {
-            position: absolute;
-            top: 5px;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            fill: $white;
-            transition: opacity ease-in-out 250ms;
+            svg {
+                width: 12.5px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                opacity: 0;
+                fill: $white;
+                transition: opacity ease-in-out 250ms;
+                top: 5px;
+                @media(min-width: 576px) {
+                    top: 10px;
+                }
+            }
         }
-    }
-    p {
-        transform: translateY(0);
-        transition: transform 250ms ease-in-out;
-    }
-
-    &:hover {
         p {
-            transform: translateY(27.5px);
+            transform: translateY(0);
+            transition: transform 250ms ease-in-out;
         }
 
-        svg {
-            opacity: 1;
+        &:hover {
+            p {
+                transform: translateY(20px);
+                @media(min-width: 576px) {
+                    transform: translateY(27.5px);
+                }
+            }
+
+            svg {
+                opacity: 1;
+            }
         }
     }
-   }
 
     .info {
         position: absolute;
@@ -635,7 +714,7 @@ img {
     justify-content: center;
     align-items: center;
 
-    input:not([type="submit"]),
+    input,
     textarea {
         width: 100%;
         background-color: $liteGrey;
@@ -644,7 +723,7 @@ img {
         border: none;
     }
 
-    input:not([type="submit"]) {
+    input {
         padding: 1rem;
 
         &:focus {
@@ -654,6 +733,7 @@ img {
 
     textarea {
         margin-bottom: -5px;
+        padding: 1rem;
 
         &:focus {
             background-color: transparent;
@@ -663,7 +743,7 @@ img {
     .underline {
         height: 2px;
         width: 0%;
-        background-color: red;
+        background-color: $primaryColor;
         transition: width 250ms ease-in-out;
 
         &.focused {
@@ -690,6 +770,12 @@ img {
                 justify-content: center;
                 align-items: center;
                 background-color: $secondaryColor;
+                box-shadow: 0;
+                transition: box-shadow 500ms ease-in-out;
+
+                &:hover {
+                    box-shadow: 0 0 30px $secondaryColor;
+                }
 
                 svg {
                     width: 50%;
@@ -704,11 +790,19 @@ img {
     }
 }
 
+.fadeIn {
+    opacity: 0;
+    transition: opacity ease-in-out 500ms;
+
+    &.activate {
+        opacity: 1;
+    }
+}
+
 .fadeUp {
     transform: translateY(50px);
     opacity: 0;
     transition: all ease-in-out 500ms;
-    // transition-delay: 500ms;
 
     &.activate {
         transform: translateY(0);
