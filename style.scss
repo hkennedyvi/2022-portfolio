@@ -1,0 +1,549 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Bree+Serif&display=swap');
+
+$black: #000000;
+$secondaryBlack: #312f2f;
+$white: #ffffff;
+$secondaryWhite: #fffffc;
+$primaryColor: #3c91e6;
+$secondaryColor: #00bfb2;
+$thirdColor: #ee2e31;
+$fontPrimary: 'Alegreya', serif;
+$fontSecondary: 'Bree Serif', serif;
+
+body,
+ul, 
+h1, 
+h2,
+h3,
+p {
+    margin: 0;
+    padding: 0;
+    color: $white;
+}
+
+ul {
+    width: 100%;
+    list-style: none;
+}
+
+section {
+    padding: 4rem 0;
+    @media(min-width: 768px) {
+        padding: 10rem 0;
+    }
+}
+
+h1 {
+    font-family: $fontPrimary;
+    font-size: 2rem;
+    @media(min-width: 768px) {
+        font-size: 4rem;
+    }
+}
+
+h2 {
+    font-family: $fontPrimary;
+    font-size: 1.75rem;
+    @media(min-width: 768px) {
+        font-size: 3.25rem;
+    }
+}
+
+h3 {
+    font-family: $fontPrimary;
+    font-size: 1.5rem;
+    @media(min-width: 768px) {
+        font-size: 2.5em;
+    }
+}
+
+p {
+    font-family: $fontSecondary;
+    font-size: 0.75rem;
+    @media(min-width: 768px) {
+        font-size: 1.25rem;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+.intersection-section {
+    overflow: hidden;
+}
+
+.container-fluid {
+    max-width: 1200px;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.image-wrapper {
+    position: relative;
+}
+
+.btn {
+    display: block;
+    padding: 0.5rem 2rem;
+    color: $white;
+    font-weight: 700;
+    font-family: $fontPrimary;
+    font-size: 1rem;
+    @media(min-width: 768px) {
+        font-size: 1.5rem;
+    }
+
+    &.colored {
+        background-color: $secondaryColor;
+    }
+}
+
+.bg-secondary-black {
+    background-color: $secondaryBlack;
+}
+
+#canvas-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.profile-picture-wrapper {
+    position: relative;
+
+    .image-wrapper {
+        width: 95%;
+        margin: 2rem 0 0 auto;
+    }
+
+    .horizontal-bar {
+        z-index: 1;
+        position: absolute;
+        width: calc(100% + 20px);
+        height: 10px;
+        background-color: $thirdColor;
+    }
+
+    .vertical-bar {
+        z-index: 1;
+        position: absolute;
+        width: 10px;
+        height: 90%;
+        background-color: $primaryColor;
+    }
+
+    .circles-wrapper {
+        width: 100%;
+        margin: 0 auto;
+        // display: flex;
+        position: relative;
+        margin-bottom: 1rem;
+
+        .circle {
+            overflow: hidden;
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            top: 1rem;
+            background-color: $black;
+
+            .fill {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 0%;
+                width: 100%;
+                animation: circleFill 4s infinite;
+            }
+
+            &:first-child {
+                left: 0;
+                animation: firstDot 4s infinite;
+
+                .fill {
+                    background-color: $thirdColor;
+                }
+            }
+
+            &:nth-child(2) {
+                left: calc(20px + 1rem);
+                animation: secondDot 4s infinite;
+
+                .fill {
+                    height: 0%;
+                    width: 100%;
+                    top: unset;
+                    bottom: 0;
+                    background-color: $primaryColor;
+                }
+            }
+
+            &:last-child {
+                left: calc(40px + 2rem);
+                animation: lastDot 4s infinite;
+
+                .fill {
+                    background-color: $secondaryColor;
+                }
+            }
+        }
+    }
+}
+
+@keyframes firstDot {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: calc(100% - 60px - 2rem);
+    }
+    60% {
+        left: calc(100% - 60px - 2rem);
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes secondDot {
+    0% {
+        left: calc(20px + 1rem);
+    }
+    40% {
+        left: calc(100% - 40px - 1rem);
+    }
+    70% {
+        left: calc(100% - 40px - 1rem);
+    }
+    100% {
+        left: calc(20px + 1rem);
+    }
+}
+
+@keyframes lastDot {
+    0% {
+        left: calc(40px + 2rem);
+    }
+    30% {
+        left: calc(100% - 20px);
+    }
+    80% {
+        left: calc(100% - 20px);
+    }
+    100% {
+        left: calc(40px + 2rem);
+    }
+}
+
+@keyframes circleFill {
+    0% {
+        height: 0%;
+    }
+    50% {
+        height: 100%;
+    }
+    100% {
+        height: 0%;
+    }
+}
+
+#plaid {
+    position: relative;
+    width: 100px;
+    height: 100px;
+
+    .line {
+        position: absolute;
+        background-color: black;
+
+        &.vertical {
+            height: 100%;
+            width: 5px;
+            top: 0;
+
+            &.one {
+                left: 33.3%;
+            }
+
+            &.two {
+                left: 66.6%;
+            }
+        }
+
+        &.horizontal {
+            width: 100%;
+            height: 5px;
+            left: 0;
+
+            &.one {
+                top: 33.3%;
+            }
+
+            &.two {
+                top: 66.6%;
+            }
+        }
+    }
+}
+
+.skill-list {
+    .experience-bar {
+        position: relative;
+        background-color: grey;
+        height: 30px;
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .experience-fill {
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 75%;
+        border-radius: 20px;
+        // width: 80%;
+        &.primary {
+            background-color: $primaryColor;
+        }
+
+        &.secondary {
+            background-color: $secondaryColor;
+        }
+
+        &.third {
+            background-color: $thirdColor;
+        }
+    }
+}
+
+.project {
+    $animationDuration: 850ms;
+
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.5);
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        // transition: all ease-in-out 250ms;
+    }
+
+    &::before {
+        background-color: $primaryColor;
+        transform: translateY(-98%);
+    }
+
+    &::after {
+        background-color: $thirdColor;
+        transform: translateY(98%);
+    }
+
+    img {
+        opacity: 1;
+        transition: opacity $animationDuration ease-in-out;
+    }
+
+    .logo-wrapper {
+        width: 200px;
+        height: 200px;
+        // position: relative;
+
+        svg {
+            // position: absolute;
+            // top: 50%;
+            // left: 50%;
+            // transform: translate(-50%,-50%);
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    .link-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $primaryColor;
+    }
+
+    .info {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity $animationDuration ease-in-out;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        &::before {
+            animation: topCurtain $animationDuration ease-in-out forwards;
+        }
+
+        &::after {
+            animation: bottomCurtain $animationDuration ease-in-out forwards;
+        }
+
+        img {
+            opacity: 0;
+        }
+
+        .info {
+            opacity: 1;
+        }
+    }
+}
+
+@keyframes topCurtain {
+    20% {
+        transform: translateY(-49%);
+    }
+    // 50% {
+    //     background-color: $thirdColor;
+    // }
+    80% {
+        transform: translateY(-49%);
+        // background-color: $thirdColor;
+    }
+     90% {
+        background-color: $thirdColor;
+    }
+    100% {
+        transform: translateY(-98%);
+    }
+}
+
+@keyframes bottomCurtain {
+    20% {
+        transform: translateY(49%);
+    }
+    // 50% {
+    //     background-color: $primaryColor;
+    // }
+    80% {
+        transform: translateY(49%);
+        // background-color: $primaryColor;
+    }
+     90% {
+        background-color: $primaryColor;
+    }
+    100% {
+        transform: translateY(98%);
+    }
+}
+
+#contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input:not([type="submit"]),
+    textarea {
+        // position: relative;
+        width: 100%;
+        background-color: $black;
+        border: none;
+
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     bottom: 0;
+        //     left: 0;
+        //     height: 2px;
+        //     width: 100%;
+        //     background-color: $secondaryColor;
+        // }
+    }
+}
+
+#contact-list {
+
+    li {
+        width: 100%;
+
+        a {
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            .icon-wrapper {
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                background-color: $secondaryColor;
+            }
+        }
+    }
+}
+
+.fadeUp {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all ease-in-out 500ms;
+
+    &.activate {
+        transform: translateY(0);
+        opacity: 1;
+
+        &.skewed {
+            transform: translateY(-20px);
+        }
+    }
+}
+
+.fadeLeft {
+    transform: translateX(100px);
+    opacity: 0;
+    transition: all ease-in-out 500ms;
+
+    &.activate {
+        transform: translateX(0);
+        opacity: 1;
+
+        &.skewed {
+            transform: translateX(-20px);
+        }
+    }
+}
+
+.fadeDown {
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: all ease-in-out 500ms;
+
+    &.activate {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fillBar {
+    width: 0%;
+    transition: width ease-in-out 500ms;
+}
+
