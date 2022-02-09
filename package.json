@@ -1,0 +1,23 @@
+{
+  "name": "2022-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hkennedyvi/2022-portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hkennedyvi/2022-portfolio/issues"
+  },
+  "homepage": "https://github.com/hkennedyvi/2022-portfolio#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "path": "^0.12.7"
+  }
+}
