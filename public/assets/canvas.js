@@ -52,7 +52,7 @@ function Particle(x, y, radius, color) {
     this.color = color;
     this.radians = Math.random() + Math.PI * 2;
     this.velocity = 0.05;
-    this.distanceFromCenter = randomIntFromRange(200, 420);
+    this.distanceFromCenter = randomIntFromRange(175, 300);
     this.lastMouse = { x: x, y: y };
 
     this.update = () => {
@@ -101,7 +101,7 @@ function animate() {
     // c.fillText('this is a test', mouse.x, mouse.y)
     // Add background color
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "rgba(0,0,0,0.1)";
+    ctx.fillStyle = "rgba(0,0,0,0.2)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 

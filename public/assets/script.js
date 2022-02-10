@@ -1,3 +1,7 @@
+// window.onbeforeunload = function () {
+//     window.scrollTo(0, 0);
+//   }
+
 const intersectionSections = Array.from(document.getElementsByClassName('intersection-section'));
 const options = {
     root: null,
@@ -23,13 +27,11 @@ const observer = new IntersectionObserver(function (entries, observer) {
 
                 $(el).addClass('activate');
                 observer.unobserve(entry.target);
-            })
+            });
 
-           
-            // animateEls.addClass('activate');
         }
 
-    })
+    });
 }, options);
 
 intersectionSections.forEach(section => {
@@ -53,7 +55,7 @@ $('.navbar-nav-link').click((e) => {
 
     e.preventDefault();
 
-    if(isMobile) {
+    if (isMobile) {
         overlay.removeClass('active');
         mobileNav.removeClass('open');
         burgerBtn.removeClass('open');
@@ -62,7 +64,7 @@ $('.navbar-nav-link').click((e) => {
 
     $('html, body').animate({
         scrollTop: $(`#${sectionId}-section`).offset().top
-      }, 500);
+    }, 500);
 });
 
 $('#overlay').click(() => {
@@ -72,7 +74,7 @@ $('#overlay').click(() => {
 })
 
 const toggleSideNav = () => {
-    
+
     overlay.toggleClass('active');
     mobileNav.toggleClass('open');
     burgerBtn.toggleClass('open');

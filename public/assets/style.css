@@ -16,6 +16,9 @@ ul {
   list-style: none;
 }
 
+.canvas-wrapper {
+  padding-top: 5rem;
+}
 @media (max-width: 992px) {
   .canvas-wrapper {
     display: none;
@@ -131,6 +134,7 @@ img {
 }
 
 .btn {
+  overflow: hidden;
   position: relative;
   border: none;
   width: 100%;
@@ -140,33 +144,33 @@ img {
   color: #ffffff;
   font-weight: 700;
   font-family: "Bree Serif", serif;
-  font-size: 1rem;
+  font-size: 1.25rem;
   z-index: 1;
 }
 @media (min-width: 768px) {
   .btn {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 }
 .btn.colored {
-  background-color: #00bfb2;
+  border: #00bfb2 1px solid;
 }
 .btn::after {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
+  left: -10px;
   height: 100%;
   width: 0%;
-  background-color: #000;
-  opacity: 0.25;
+  transform: skewX(-20deg);
+  background-color: #00bfb2;
   transition: width 250ms ease-in-out;
 }
 .btn:hover {
   color: #ffffff;
 }
 .btn:hover::after {
-  width: 100%;
+  width: 110%;
 }
 .btn span {
   position: relative;
@@ -226,16 +230,16 @@ img {
 }
 
 .bg-secondary-black {
-  background-color: #312f2f;
+  background-color: #181818;
 }
 
 .bg-dark-grey {
-  background-color: #383838;
+  background-color: #272727;
 }
 
 #canvas-text {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 5rem);
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -252,7 +256,7 @@ img {
 }
 
 #navbar {
-  background-color: #474444;
+  background-color: #272727;
   position: fixed;
   top: 0;
   left: 0;
@@ -345,7 +349,7 @@ img {
 #navbar aside {
   position: fixed;
   height: 100vh;
-  background-color: #383838;
+  background-color: #272727;
   box-shadow: -8px -2px 30px rgba(0, 0, 0, 0.7);
   width: 300px;
   top: 0;
@@ -354,6 +358,14 @@ img {
 }
 #navbar aside.open {
   right: 0;
+}
+
+#about-section h4 {
+  color: rgba(255, 255, 255, 0.8);
+  color: #00bfb2;
+}
+#about-section p {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .profile-picture-wrapper {
@@ -492,7 +504,7 @@ img {
 }
 #plaid .line {
   position: absolute;
-  background-color: #383838;
+  background-color: #272727;
 }
 #plaid .line.vertical {
   height: 100%;
@@ -592,6 +604,46 @@ img {
     padding: 1rem;
   }
 }
+#work-section p.main {
+  padding: 2rem 0;
+}
+#work-section p.main::before, #work-section p.main::after {
+  content: "";
+  position: absolute;
+  width: 30rem;
+  height: 2px;
+}
+#work-section p.main::before {
+  top: -1rem;
+  left: -1rem;
+  background-color: #3c91e6;
+}
+#work-section p.main::after {
+  bottom: -1rem;
+  right: -1rem;
+  background-color: #ee2e31;
+}
+#work-section .link {
+  position: relative;
+  transition: color 500ms ease-in-out;
+}
+#work-section .link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #00bfb2;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+#work-section .link:hover {
+  color: #00bfb2;
+}
+#work-section .link:hover::after {
+  opacity: 1;
+}
 
 .project {
   position: relative;
@@ -600,6 +652,7 @@ img {
   box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.5);
   background-color: rgba(0, 0, 0, 0.15);
   max-width: 325px;
+  margin-top: 2rem;
 }
 .project::before, .project::after {
   content: "";
@@ -615,7 +668,7 @@ img {
   transform: translateY(-98%);
 }
 .project::after {
-  background-color: #474444;
+  background-color: #636363;
   transform: translateY(98%);
 }
 .project img {
@@ -746,7 +799,7 @@ img {
 #contact-form input,
 #contact-form textarea {
   width: 100%;
-  background-color: #474444;
+  background-color: #636363;
   color: #ffffff;
   transition: background-color 250ms ease-in-out;
   border: none;
@@ -767,7 +820,7 @@ img {
 #contact-form .underline {
   height: 2px;
   width: 0%;
-  background-color: #3c91e6;
+  background-color: #00bfb2;
   transition: width 250ms ease-in-out;
 }
 #contact-form .underline.focused {
@@ -792,8 +845,6 @@ img {
   transition: color ease-in-out 500ms;
 }
 #contact-list li a .icon-wrapper {
-  height: 75px;
-  width: 75px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -801,6 +852,14 @@ img {
   background-color: #00bfb2;
   box-shadow: 0;
   transition: box-shadow 500ms ease-in-out;
+  height: 50px;
+  width: 50px;
+}
+@media (min-width: 768px) {
+  #contact-list li a .icon-wrapper {
+    height: 75px;
+    width: 75px;
+  }
 }
 #contact-list li a .icon-wrapper:hover {
   box-shadow: 0 0 30px #00bfb2;
