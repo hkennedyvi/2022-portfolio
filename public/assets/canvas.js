@@ -27,6 +27,13 @@ addEventListener('resize', () => {
     canvas.width = innerWidth;
     canvas.height = innerHeight;
 
+    // mobile nav reset 
+    if(window.innerWidth >= 768) {
+        $('#overlay').removeClass('active');
+        $('#burger-btn').removeClass('open');
+        $('#navbar aside').removeClass('open');
+    }
+
     init();
 });
 

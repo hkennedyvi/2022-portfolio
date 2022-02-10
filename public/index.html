@@ -13,54 +13,72 @@
     <!-- Main Styles -->
     <link rel="stylesheet" href="./assets/style.css" />
 
-    <title>Document</title>
+    <title>Howard Kennedy - Portfolio</title>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#about-section">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#work-section">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- <nav id="navbar">
-            <div class="ms-auto">
+    <div id="overlay"></div>
+    <header class="intersection-section">
+        <nav id="navbar" class="animate fadeDown">
+            <a class="logo-wrapper ms-4" href="#">
+                <div class="box"></div>
+                <div class="outline one"></div>
+                <div class="outline two"></div>
+            </a>
+            <div class="ms-auto d-none d-md-block">
                 <ul>
-                    <li>
-                        <a class="navbar-nav-link" data-navigation="about" href="#about-section">about</a>
+                    <li class="animate fadeUp" data-delay="200ms">
+                        <a class="navbar-nav-link" data-navigation="about" href="#about-section">
+                            <span>01.</span> about
+                        </a>
                     </li>
-                    <li class="ms-5">
-                        <a class="navbar-nav-link" data-navigation="skills" href="#skills-section">skills</a>
+                    <li class="ms-5 animate fadeUp" data-delay="300ms">
+                        <a class="navbar-nav-link" data-navigation="skills" href="#skills-section">
+                            <span>0.2</span> skills
+                        </a>
                     </li>
-                    <li class="ms-5">
-                        <a  class="navbar-nav-link" data-navigation="work" href="#work-section">work</a>
+                    <li class="ms-5 animate fadeUp" data-delay="400ms">
+                        <a  class="navbar-nav-link" data-navigation="work" href="#work-section">
+                            <span>0.3</span> work
+                        </a>
                     </li>
-                    <li class="mx-5">
-                        <a class="navbar-nav-link" data-navigation="contact" href="#contact-section">contact</a>
+                    <li class="mx-5 animate fadeUp" data-delay="500ms">
+                        <a class="navbar-nav-link" data-navigation="contact" href="#contact-section">
+                            <span>0.4</span> contact
+                        </a>
                     </li>
                 </ul>
             </div>
-        </nav> -->
+
+            <button id="burger-btn" class="d-md-none me-4" onclick="toggleSideNav()">
+                <div class="middle-bar"></div>
+            </button>
+
+            <aside class="d-md-none">
+                <ul>
+                    <li class="mx-auto mb-3">
+                        <a class="navbar-nav-link mobile" data-navigation="about">
+                            <span>01.</span> about
+                        </a>
+                    </li>
+                    <li class="mx-auto mb-3">
+                        <a class="navbar-nav-link mobile" data-navigation="skills">
+                            <span>0.2</span> skills
+                        </a>
+                    </li>
+                    <li class="mx-auto mb-3">
+                        <a  class="navbar-nav-link mobile" data-navigation="work">
+                            <span>0.3</span> work
+                        </a>
+                    </li>
+                    <li class="mx-auto">
+                        <a class="navbar-nav-link mobile" data-navigation="contact">
+                            <span>0.4</span> contact
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+        </nav>
         <div class="canvas-wrapper bg-secondary-black">
             <canvas>
 
@@ -70,6 +88,7 @@
             </div>
         </div>
     </header>
+
     <main>
         <section id="about-section" class="bg-secondary-black">
             <div class="container-fluid">
@@ -99,10 +118,10 @@
                     <div class="col-12 col-md-6">
                         <div class="content justify-content-between">
 
-                            <h4 class="me-auto mb-5 animate fadeDown">Who I am</h4>
+                            <h4 class="me-auto mb-5 animate fadeDown">who I am</h4>
 
                             <div>
-                                <h1 class="me-auto animate fadeDown">My name is Howard</h1>
+                                <h1 class="me-auto animate fadeDown">my name is Howard</h1>
                                 <p class="mb-5 animate fadeDown">
                                     Ad dolore dignissimos asperiores dicta facere optio quod commodi nam tempore
                                     recusandae.
@@ -111,7 +130,7 @@
                                     optio aliquam!
                                 </p>
                                 <a href="" class="btn colored animate fadeDown">
-                                    <span>Learn More</span>
+                                    <span>learn more</span>
                                 </a>
                             </div>
 
@@ -142,7 +161,7 @@
                                     <h4>frontend</h4>
                                     <div class="experience-bar">
                                         <div class="primary experience-fill animate fillBar" data-delay="100ms"
-                                            data-width="90%"></div>
+                                            data-width="95%"></div>
                                     </div>
                                 </li>
                                 <li class="mb-4 animate fadeLeft" data-delay="100ms">
@@ -156,7 +175,7 @@
                                     <h4>vueJS</h4>
                                     <div class="experience-bar">
                                         <div class="third experience-fill animate fillBar" data-delay="300ms"
-                                            data-width="85%"></div>
+                                            data-width="90%"></div>
                                     </div>
                                 </li>
                                 <li class="mb-4 animate fadeLeft" data-delay="300ms">
@@ -170,14 +189,14 @@
                                     <h4>liquid</h4>
                                     <div class="experience-bar">
                                         <div class="third experience-fill animate fillBar" data-delay="500ms"
-                                            data-width="92.5%"></div>
+                                            data-width="95%"></div>
                                     </div>
                                 </li>
                                 <li class="mb-4 animate fadeLeft" data-delay="500ms">
                                     <h4>python</h4>
                                     <div class="experience-bar">
                                         <div class="primary experience-fill animate fillBar" data-delay="600ms"
-                                            data-width="97.5%"></div>
+                                            data-width="87.5%"></div>
                                     </div>
                                 </li>
                             </ul>
@@ -186,7 +205,7 @@
 
                     <div class="col-12 col-md-6">
                         <div class="content">
-                            <p class="p-2 p-md-0 animate fadeUp">
+                            <p class="p-4 p-md-0 animate fadeUp">
                                 Ad dolore dignissimos asperiores dicta facere optio quod commodi nam tempore
                                 recusandae.
                                 Rerum sed nulla eum vero expedita ex delectus voluptates rem at neque quos facere
@@ -238,6 +257,14 @@
                     <div class="col-12">
                         <div class="content">
                             <h2 class="me-auto">work</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="content">
+                            <p>fjkdlsafjdsjfeiovajeio afmi ofmsdakl fndmskalv nsklegnekoavfnmveklfmds;lf afkldfk ldafjkldf jkesjf oipesmf lkdmfklds mfkdlsfamskof miesofm kflasdmfkld;sf andkslfn kdlfj aksl;fj;kldsajfskfoejfieo;anfs;dfnkdlfank dsf</p>
                         </div>
                     </div>
                 </div>
@@ -769,7 +796,7 @@ m-499 -304 c66 -59 44 -197 -37 -236 -64 -30 -145 -11 -158 36 -9 35 -7 114 3
                                     <div class="underline"></div>
                                 </div>
                                 <div class="w-100 mb-3">
-                                    <textarea id="message-input" cols="30" rows="10"></textarea>
+                                    <textarea id="message-input" placeholder="message" cols="30" rows="10"></textarea>
                                     <div class="underline"></div>
                                 </div>
                                 <button class="btn colored" onclick="submitForm(event)">
@@ -791,7 +818,7 @@ m-499 -304 c66 -59 44 -197 -37 -236 -64 -30 -145 -11 -158 36 -9 35 -7 114 3
                                                     d="M256 352c-16.53 0-33.06-5.422-47.16-16.41L0 173.2V400C0 426.5 21.49 448 48 448h416c26.51 0 48-21.49 48-48V173.2l-208.8 162.5C289.1 346.6 272.5 352 256 352zM16.29 145.3l212.2 165.1c16.19 12.6 38.87 12.6 55.06 0l212.2-165.1C505.1 137.3 512 125 512 112C512 85.49 490.5 64 464 64h-416C21.49 64 0 85.49 0 112C0 125 6.01 137.3 16.29 145.3z" />
                                             </svg>
                                         </div>
-                                        <h5 class="ms-3">email</h5>
+                                        <h4 class="ms-3">email</h4>
                                     </a>
                                 </li>
                                 <li class="mb-3 animate fadeLeft" data-delay="100ms">
@@ -803,7 +830,7 @@ m-499 -304 c66 -59 44 -197 -37 -236 -64 -30 -145 -11 -158 36 -9 35 -7 114 3
                                                     d="M18.92 351.2l108.5-46.52c12.78-5.531 27.77-1.801 36.45 8.98l44.09 53.82c69.25-34 125.5-90.31 159.5-159.5l-53.81-44.04c-10.75-8.781-14.41-23.69-8.974-36.47l46.51-108.5c6.094-13.91 21.1-21.52 35.79-18.11l100.8 23.25c14.25 3.25 24.22 15.8 24.22 30.46c0 252.3-205.2 457.5-457.5 457.5c-14.67 0-27.18-9.968-30.45-24.22l-23.25-100.8C-2.571 372.4 5.018 357.2 18.92 351.2z" />
                                             </svg>
                                         </div>
-                                        <h5 class="ms-3">call</h5>
+                                        <h4 class="ms-3">call</h4>
                                     </a>
                                 </li>
                                 <li class="animate fadeLeft" data-delay="200ms">
@@ -815,7 +842,7 @@ m-499 -304 c66 -59 44 -197 -37 -236 -64 -30 -145 -11 -158 36 -9 35 -7 114 3
                                                     d="M416 32h41.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
                                             </svg>
                                         </div>
-                                        <h5 class="ms-3">connect</h5>
+                                        <h4 class="ms-3">connect</h4>
                                     </a>
                                 </li>
                             </ul>
