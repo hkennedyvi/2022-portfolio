@@ -85,9 +85,9 @@ const toggleSideNav = () => {
 // })
 const validateEmail = (email) => {
     return email.match(
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
-  };
+};
 
 const submitForm = e => {
     const form = $('#contact-form');
@@ -95,18 +95,33 @@ const submitForm = e => {
     const email = form.find('#email-input').val();
     const message = form.find('#message-input').val();
     e.preventDefault();
-  
-    const formData = {
-        name: name,
-        email: email,
-        message: message
+
+    !validateEmail(email) ? form.find('#email-input').siblings('.error-msg').addClass('show') : form.find('#email-input').siblings('.error-msg').removeClass('show');
+
+    name == '' ? form.find('#name-input').siblings('.error-msg').addClass('show') : form.find('#name-input').siblings('.error-msg').removeClass('show');
+
+    message == '' ? form.find('#message-input').siblings('.error-msg').addClass('show') : form.find('#message-input').siblings('.error-msg').removeClass('show');
+
+
+    if (!validateEmail(email) || name == '' || message == '') {
+        return;
+    } else {
+
+        const formData = {
+            name: name,
+            email: email,
+            message: message
+        }
+
+        fetch("/send", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        }).then(res => {
+            console.log("Request complete! response:", res);
+        });
+
+        $('.success-msg').addClass('show');
     }
 
-    fetch("/send", {
-        method: "POST",
-        headers: {'Content-Type': 'application/json'}, 
-        body: JSON.stringify(formData)
-      }).then(res => {
-        console.log("Request complete! response:", res);
-      });
 }

@@ -103,6 +103,29 @@ p {
     }
 }
 
+.error-msg, .success-msg {
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+
+    &.show {
+        opacity: 1;
+    }
+}
+
+.error-msg {
+    color: $thirdColor;
+}
+
+.success-msg {
+    color: $secondaryColor;
+    margin: 0.5rem auto 0 auto;
+    @media(min-width: 768px) {
+        margin: 0.5rem auto 0 0;
+    }
+}
+
 a {
     text-decoration: none;
     color: $white;

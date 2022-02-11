@@ -737,22 +737,25 @@ m-499 -304 c66 -59 44 -197 -37 -236 -64 -30 -145 -11 -158 36 -9 35 -7 114 3
                     <div class="col-12 col-md-7">
                         <div class="content">
                             <form id="contact-form" method="POST" action="send" class="animate fadeUp">
-                                <div class="w-100 mb-3">
+                                <div class="w-100">
                                     <input id="name-input" type="text" placeholder="name" />
                                     <div class="underline"></div>
+                                    <p class="error-msg">please provide your name</p>
                                 </div>
-                                <div class="w-100 mb-3">
+                                <div class="w-100">
                                     <input id="email-input" type="email" placeholder="email" />
                                     <div class="underline"></div>
+                                    <p class="error-msg">please provide a valid email</p>
                                 </div>
-                                <div class="w-100 mb-3">
+                                <div class="w-100">
                                     <textarea id="message-input" placeholder="message" cols="30" rows="10"></textarea>
                                     <div class="underline"></div>
+                                    <p class="error-msg">say something, even just hello!</p>
                                 </div>
                                 <button class="btn colored" onclick="submitForm(event)">
                                     <span>say hello</span>
                                 </button>
-                                <!-- <input type="submit"> -->
+                                <p class="success-msg">glad to hear from you! I'll be in touch soon.</p>
                             </form>
                         </div>
                     </div>

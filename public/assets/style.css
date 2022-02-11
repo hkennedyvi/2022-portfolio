@@ -102,6 +102,30 @@ p {
   }
 }
 
+.error-msg, .success-msg {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+}
+.error-msg.show, .success-msg.show {
+  opacity: 1;
+}
+
+.error-msg {
+  color: #ee2e31;
+}
+
+.success-msg {
+  color: #00bfb2;
+  margin: 0.5rem auto 0 auto;
+}
+@media (min-width: 768px) {
+  .success-msg {
+    margin: 0.5rem auto 0 0;
+  }
+}
+
 a {
   text-decoration: none;
   color: #ffffff;
