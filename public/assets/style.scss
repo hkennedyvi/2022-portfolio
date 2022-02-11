@@ -25,6 +25,10 @@ h5 p {
     color: $white;
 }
 
+body.open-nav {
+    overflow-y: hidden;
+}
+
 ul {
     width: 100%;
     list-style: none;
@@ -56,7 +60,7 @@ textarea:focus {
 
 h1 {
     font-family: $fontPrimary;
-    font-size: 2rem;
+    font-size: 3.5rem;
     @media (min-width: 768px) {
         font-size: 5.25rem;
     }
@@ -857,63 +861,6 @@ img {
         }
     }
 
-    .link-icon {
-        border-radius: 50%;
-        background-color: $secondaryColor;
-        display: flex;
-        // flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 37.5px;
-        height: 37.5px;
-        @media (min-width: 576px) {
-            width: 50px;
-            height: 50px;
-        }
-
-        svg {
-            width: 70%;
-            // height: 100%;
-        }
-    }
-
-    .link-wrap {
-        .inner-link-wrap {
-            position: relative;
-
-            svg {
-                width: 12.5px;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                opacity: 0;
-                fill: $white;
-                transition: opacity ease-in-out 250ms;
-                top: 5px;
-                @media (min-width: 576px) {
-                    top: 10px;
-                }
-            }
-        }
-        p {
-            transform: translateY(0);
-            transition: transform 250ms ease-in-out;
-        }
-
-        &:hover {
-            p {
-                transform: translateY(20px);
-                @media (min-width: 576px) {
-                    transform: translateY(27.5px);
-                }
-            }
-
-            svg {
-                opacity: 1;
-            }
-        }
-    }
-
     .info {
         position: absolute;
         inset: 0;
@@ -943,6 +890,64 @@ img {
         }
 
         .info {
+            opacity: 1;
+        }
+    }
+}
+
+.link-icon {
+    border-radius: 50%;
+    background-color: $secondaryColor;
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 37.5px;
+    height: 37.5px;
+    @media (min-width: 576px) {
+        width: 50px;
+        height: 50px;
+    }
+
+    svg {
+        width: 70%;
+        // height: 100%;
+    }
+}
+
+.link-wrap {
+    .inner-link-wrap {
+        position: relative;
+
+        svg {
+            width: 12.5px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            fill: $white;
+            transition: opacity ease-in-out 250ms;
+            top: 5px;
+            @media (min-width: 576px) {
+                top: 10px;
+            }
+        }
+    }
+    p {
+        text-align: center;
+        transform: translateY(0);
+        transition: transform 250ms ease-in-out;
+    }
+
+    &:hover {
+        p {
+            transform: translateY(20px);
+            @media (min-width: 576px) {
+                transform: translateY(27.5px);
+            }
+        }
+
+        svg {
             opacity: 1;
         }
     }
@@ -1098,7 +1103,7 @@ img {
 .fadeUp {
     transform: translateY(50px);
     opacity: 0;
-    transition: all ease-in-out 500ms;
+    transition: transform ease-in-out 500ms, opacity ease-in-out 500ms;
 
     &.activate {
         transform: translateY(0);
@@ -1113,7 +1118,7 @@ img {
 .fadeLeft {
     transform: translateX(100px);
     opacity: 0;
-    transition: all ease-in-out 500ms;
+    transition: transform ease-in-out 500ms, opacity ease-in-out 500ms;
     // transition-delay: 500ms;
 
     &.activate {
@@ -1129,7 +1134,7 @@ img {
 .fadeDown {
     transform: translateY(-50px);
     opacity: 0;
-    transition: all ease-in-out 500ms;
+    transition: transform ease-in-out 500ms, opacity ease-in-out 500ms;
     // transition-delay: 500ms;
 
     &.activate {

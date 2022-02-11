@@ -1,12 +1,11 @@
 // window.onbeforeunload = function () {
 //     window.scrollTo(0, 0);
 //   }
-// const test = require('path')
+
 const intersectionSections = Array.from(document.getElementsByClassName('intersection-section'));
 const options = {
     root: null,
     threshold: 0.5,
-    // rootMargin: "-25px"
 };
 
 const observer = new IntersectionObserver(function (entries, observer) {
@@ -48,6 +47,7 @@ $('input, textarea').focus((e) => {
 const mobileNav = $('#navbar aside');
 const burgerBtn = $('#burger-btn');
 const overlay = $('#overlay');
+const docBody = $('body');
 
 $('.navbar-nav-link').click((e) => {
     const sectionId = $(e.target).attr('data-navigation');
@@ -56,10 +56,10 @@ $('.navbar-nav-link').click((e) => {
     e.preventDefault();
 
     if (isMobile) {
+        docBody.removeClass('open-nav');
         overlay.removeClass('active');
         mobileNav.removeClass('open');
         burgerBtn.removeClass('open');
-
     }
 
     $('html, body').animate({
@@ -68,17 +68,18 @@ $('.navbar-nav-link').click((e) => {
 });
 
 $('#overlay').click(() => {
+    docBody.removeClass('open-nav');
     overlay.removeClass('active');
     mobileNav.removeClass('open');
     burgerBtn.removeClass('open');
-})
+});
 
 const toggleSideNav = () => {
-
+    docBody.toggleClass('open-nav');
     overlay.toggleClass('active');
     mobileNav.toggleClass('open');
     burgerBtn.toggleClass('open');
-}
+};
 
 // $('.project').mouseleave(() => {
 //     console.log('now')

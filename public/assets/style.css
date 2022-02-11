@@ -11,6 +11,10 @@ h5 p {
   color: #ffffff;
 }
 
+body.open-nav {
+  overflow-y: hidden;
+}
+
 ul {
   width: 100%;
   list-style: none;
@@ -46,7 +50,7 @@ textarea:focus {
 
 h1 {
   font-family: "Alegreya", serif;
-  font-size: 2rem;
+  font-size: 3.5rem;
 }
 @media (min-width: 768px) {
   h1 {
@@ -719,57 +723,6 @@ img {
   max-width: 100%;
   max-height: 100%;
 }
-.project .link-icon {
-  border-radius: 50%;
-  background-color: #00bfb2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 37.5px;
-  height: 37.5px;
-}
-@media (min-width: 576px) {
-  .project .link-icon {
-    width: 50px;
-    height: 50px;
-  }
-}
-.project .link-icon svg {
-  width: 70%;
-}
-.project .link-wrap .inner-link-wrap {
-  position: relative;
-}
-.project .link-wrap .inner-link-wrap svg {
-  width: 12.5px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  fill: #ffffff;
-  transition: opacity ease-in-out 250ms;
-  top: 5px;
-}
-@media (min-width: 576px) {
-  .project .link-wrap .inner-link-wrap svg {
-    top: 10px;
-  }
-}
-.project .link-wrap p {
-  transform: translateY(0);
-  transition: transform 250ms ease-in-out;
-}
-.project .link-wrap:hover p {
-  transform: translateY(20px);
-}
-@media (min-width: 576px) {
-  .project .link-wrap:hover p {
-    transform: translateY(27.5px);
-  }
-}
-.project .link-wrap:hover svg {
-  opacity: 1;
-}
 .project .info {
   position: absolute;
   inset: 0;
@@ -793,6 +746,60 @@ img {
   opacity: 0;
 }
 .project:hover .info {
+  opacity: 1;
+}
+
+.link-icon {
+  border-radius: 50%;
+  background-color: #00bfb2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 37.5px;
+  height: 37.5px;
+}
+@media (min-width: 576px) {
+  .link-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+.link-icon svg {
+  width: 70%;
+}
+
+.link-wrap .inner-link-wrap {
+  position: relative;
+}
+.link-wrap .inner-link-wrap svg {
+  width: 12.5px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  fill: #ffffff;
+  transition: opacity ease-in-out 250ms;
+  top: 5px;
+}
+@media (min-width: 576px) {
+  .link-wrap .inner-link-wrap svg {
+    top: 10px;
+  }
+}
+.link-wrap p {
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 250ms ease-in-out;
+}
+.link-wrap:hover p {
+  transform: translateY(20px);
+}
+@media (min-width: 576px) {
+  .link-wrap:hover p {
+    transform: translateY(27.5px);
+  }
+}
+.link-wrap:hover svg {
   opacity: 1;
 }
 
@@ -918,7 +925,7 @@ img {
 .fadeUp {
   transform: translateY(50px);
   opacity: 0;
-  transition: all ease-in-out 500ms;
+  transition: transform ease-in-out 500ms, opacity ease-in-out 500ms;
 }
 .fadeUp.activate {
   transform: translateY(0);
@@ -931,7 +938,7 @@ img {
 .fadeLeft {
   transform: translateX(100px);
   opacity: 0;
-  transition: all ease-in-out 500ms;
+  transition: transform ease-in-out 500ms, opacity ease-in-out 500ms;
 }
 .fadeLeft.activate {
   transform: translateX(0);
@@ -944,7 +951,7 @@ img {
 .fadeDown {
   transform: translateY(-50px);
   opacity: 0;
-  transition: all ease-in-out 500ms;
+  transition: transform ease-in-out 500ms, opacity ease-in-out 500ms;
 }
 .fadeDown.activate {
   transform: translateY(0);
