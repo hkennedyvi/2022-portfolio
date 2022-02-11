@@ -34,6 +34,10 @@ section {
   }
 }
 
+code {
+  color: #00bfb2;
+}
+
 input:focus,
 textarea:focus {
   border: none;
@@ -89,6 +93,7 @@ h5 {
 
 p {
   font-family: "Bree Serif", serif;
+  line-height: 2;
   font-size: 1rem;
 }
 @media (min-width: 768px) {
@@ -799,10 +804,16 @@ img {
 #contact-form input,
 #contact-form textarea {
   width: 100%;
+  font-family: "Bree Serif", serif;
   background-color: #636363;
   color: #ffffff;
   transition: background-color 250ms ease-in-out;
   border: none;
+}
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  font-family: "Bree Serif", serif;
+  color: #ffffff;
 }
 #contact-form input {
   padding: 1rem;

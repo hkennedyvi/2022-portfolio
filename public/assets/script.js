@@ -1,7 +1,7 @@
 // window.onbeforeunload = function () {
 //     window.scrollTo(0, 0);
 //   }
-
+// const test = require('path')
 const intersectionSections = Array.from(document.getElementsByClassName('intersection-section'));
 const options = {
     root: null,
@@ -83,3 +83,30 @@ const toggleSideNav = () => {
 // $('.project').mouseleave(() => {
 //     console.log('now')
 // })
+const validateEmail = (email) => {
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+  };
+
+const submitForm = e => {
+    const form = $('#contact-form');
+    const name = form.find('#name-input').val();
+    const email = form.find('#email-input').val();
+    const message = form.find('#message-input').val();
+    e.preventDefault();
+  
+    const formData = {
+        name: name,
+        email: email,
+        message: message
+    }
+
+    fetch("/send", {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify(formData)
+      }).then(res => {
+        console.log("Request complete! response:", res);
+      });
+}

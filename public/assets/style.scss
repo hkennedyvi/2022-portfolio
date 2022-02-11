@@ -44,6 +44,10 @@ section {
     }
 }
 
+code {
+    color: $secondaryColor;
+}
+
 input:focus,
 textarea:focus {
     border: none;
@@ -92,6 +96,7 @@ h5 {
 
 p {
     font-family: $fontSecondary;
+    line-height: 2;
     font-size: 1rem;
     @media (min-width: 768px) {
         font-size: 1.25rem;
@@ -968,10 +973,16 @@ img {
     input,
     textarea {
         width: 100%;
+        font-family: $fontSecondary;
         background-color: $liteGrey;
         color: $white;
         transition: background-color 250ms ease-in-out;
         border: none;
+
+        &::placeholder {
+            font-family: $fontSecondary;
+            color: $white;
+        }
     }
 
     input {
