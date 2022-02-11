@@ -589,7 +589,7 @@ img {
 
 #see-more-wrapper {
   position: absolute;
-  bottom: 0;
+  bottom: -2rem;
   right: -2rem;
   transform: rotate(90deg);
   display: flex;
